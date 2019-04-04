@@ -13,6 +13,7 @@
     "next": "^8.0.4"
   },
   "dependencies": {
+    "@zeit/next-typescript": "^1.1.1",
     "antd": "^3.16.1",
     "babel-plugin-import": "^1.11.0",
     "less": "^3.9.0",
