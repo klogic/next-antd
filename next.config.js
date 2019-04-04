@@ -1,4 +1,5 @@
 module.exports = () => {
+  const withTypescript = require("@zeit/next-typescript");
   /* eslint-disable */
   const withLess = require("@zeit/next-less");
   const lessToJS = require("less-vars-to-js");
@@ -15,10 +16,12 @@ module.exports = () => {
   if (typeof require !== "undefined") {
     require.extensions[".less"] = file => {};
   }
-  return withLess({
-    lessLoaderOptions: {
-      javascriptEnabled: true,
-      modifyVars: themeVariables // make your antd custom effective
-    }
-  });
+  return withTypescript(
+    withLess({
+      lessLoaderOptions: {
+        javascriptEnabled: true,
+        modifyVars: themeVariables // make your antd custom effective
+      }
+    })
+  );
 };
